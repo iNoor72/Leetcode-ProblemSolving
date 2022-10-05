@@ -1,7 +1,6 @@
 import Foundation
 
 //Problem #1: https://leetcode.com/problems/remove-duplicates-from-sorted-array/
-
 func removeDuplicates(_ nums: inout [Int]) -> Int {
     var numbersList: [Int] = [Int](-100...100)
     var resultArray = [Int]()
@@ -38,3 +37,21 @@ func singleNumber(_ nums: [Int]) -> Int {
 
 var pb2nputArray = [1,4,1,2,2]
 print(singleNumber(pb2nputArray))
+
+//Problem #3: https://leetcode.com/problems/number-of-1-bits/
+func hammingWeight(_ n: Int) -> Int {
+    var numberOfOnes = 0
+    var num = n
+    while num != 0 {
+        if (num & 1) > 0 {
+            numberOfOnes += 1
+        }
+        
+        num = num >> 1
+    }
+    
+    return numberOfOnes
+}
+
+let pb3Input = 00000000000000000000000000001011
+print(hammingWeight(pb3Input))
