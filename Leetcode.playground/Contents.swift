@@ -55,3 +55,34 @@ func hammingWeight(_ n: Int) -> Int {
 
 let pb3Input = 00000000000000000000000000001011
 print(hammingWeight(pb3Input))
+
+
+//Problem #4: https://leetcode.com/problems/search-in-rotated-sorted-array/
+func search(_ nums: [Int], _ target: Int) -> Int {
+    var index = -1
+    if let index = nums.firstIndex(of: target) {
+        return index
+    }
+    
+    return index
+    }
+
+
+//Problem #5: https://leetcode.com/problems/majority-element/
+func majorityElement(_ nums: [Int]) -> Int {
+    var result: Int = -1
+    var maxVal = -1
+    let numbersSet: Set<Int> = Set(nums)
+    var occurances: [Int: Int] = [:]
+    numbersSet.forEach {
+        occurances[$0] = 0
+    }
+    for number in nums {
+        occurances[number] = occurances[number]! + 1
+    }
+    
+    for (key, val) in occurances {
+        if val > maxVal { result = key }
+    }
+    return result
+}
