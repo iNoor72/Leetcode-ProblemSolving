@@ -98,3 +98,7 @@ func searchInsert(_ nums: [Int], _ target: Int) -> Int {
     else { return 0 }
 }
 
+//Problem #7: https://leetcode.com/problems/kth-largest-element-in-an-array/description/
+func findKthLargest(_ nums: [Int], _ k: Int) -> Int {
+    return nums.sorted().reversed()[k-1]
+}
