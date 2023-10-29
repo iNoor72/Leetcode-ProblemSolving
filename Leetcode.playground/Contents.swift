@@ -86,3 +86,15 @@ func majorityElement(_ nums: [Int]) -> Int {
     }
     return result
 }
+
+//Problem #6: https://leetcode.com/problems/search-insert-position/description/
+func searchInsert(_ nums: [Int], _ target: Int) -> Int {
+    guard !nums.contains(target) else {
+        return nums.firstIndex(of: target)!
+    }
+    
+    if let index = nums.firstIndex { $0 > target } { return index }
+    if target > nums.max() ?? 0 { return nums.count }
+    else { return 0 }
+}
+
