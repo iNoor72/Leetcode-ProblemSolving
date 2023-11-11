@@ -115,3 +115,14 @@ func strStr(_ haystack: String, _ needle: String) -> Int {
     }
     return index
 }
+
+//Problem #9: https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/
+func searchRange(_ nums: [Int], _ target: Int) -> [Int] {
+    guard nums.contains(target) else { return [-1, -1] }
+    
+    let firstIndex = nums.firstIndex(of: target) ?? -1
+    let lastIndex = nums.lastIndex(of: target) ?? -1
+    
+    return [firstIndex, lastIndex]
+}
+
