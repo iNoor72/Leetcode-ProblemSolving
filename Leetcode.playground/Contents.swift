@@ -65,7 +65,7 @@ func search(_ nums: [Int], _ target: Int) -> Int {
     }
     
     return index
-    }
+}
 
 
 //Problem #5: https://leetcode.com/problems/majority-element/
@@ -101,4 +101,17 @@ func searchInsert(_ nums: [Int], _ target: Int) -> Int {
 //Problem #7: https://leetcode.com/problems/kth-largest-element-in-an-array/description/
 func findKthLargest(_ nums: [Int], _ k: Int) -> Int {
     return nums.sorted().reversed()[k-1]
+}
+
+//Problem #8: https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/
+func strStr(_ haystack: String, _ needle: String) -> Int {
+    var index = -1
+    guard haystack.count > 0 else { return index }
+    
+    let newHay = haystack.replacingOccurrences(of: needle, with: "#")
+    
+    if let occurance = newHay.firstIndex(of: "#") {
+        index = newHay.distance(from: haystack.startIndex, to: occurance)
+    }
+    return index
 }
