@@ -126,3 +126,17 @@ func searchRange(_ nums: [Int], _ target: Int) -> [Int] {
     return [firstIndex, lastIndex]
 }
 
+//Problem #10: https://leetcode.com/problems/find-target-indices-after-sorting-array/description/
+func targetIndices(_ nums: [Int], _ target: Int) -> [Int] {
+    var sortedArray = nums.sorted()
+    var indicies: [Int] = []
+    
+    while true {
+        guard let index = sortedArray.firstIndex(of: target) else { break }
+        indicies.append(index)
+        sortedArray.remove(at: index)
+        sortedArray.insert(-1, at: index)
+    }
+    
+    return indicies
+}
