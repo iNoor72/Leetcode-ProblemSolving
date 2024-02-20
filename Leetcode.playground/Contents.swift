@@ -140,3 +140,22 @@ func targetIndices(_ nums: [Int], _ target: Int) -> [Int] {
     
     return indicies
 }
+
+//Problem #11: https://leetcode.com/problems/missing-number/description/
+func missingNumber(_ nums: [Int]) -> Int {
+    var missingNumber = -1
+    
+    let sortedNumbers = nums.sorted()
+    guard sortedNumbers[0] == 0 else { return 0 }
+    
+    for index in 0..<sortedNumbers.count-1 {
+        guard !(sortedNumbers[index+1] - sortedNumbers[index] == 1) else { continue }
+        missingNumber = sortedNumbers[index+1] - 1
+    }
+    
+    if missingNumber == -1 {
+        missingNumber = (sortedNumbers.last ?? 0) + 1
+    }
+    
+    return missingNumber
+}
